@@ -3,7 +3,8 @@ import warnings
 
 import numpy as np
 import json
-from scipy.misc import imread, imresize
+from imageio import imread
+from PIL import Image
 
 import torch
 import torchvision.transforms as transforms
@@ -19,6 +20,8 @@ warnings.filterwarnings('ignore')
 
 device = get_device()
 
+def imresize(img, shape):
+    return np.array(Image.fromarray(img).resize(shape))
 
 def read_image(image_path):
     r"""Reads an image and captions it with beam search.

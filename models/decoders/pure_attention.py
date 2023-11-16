@@ -236,7 +236,7 @@ class PureAttention(nn.Module):
                     -1).topk(k, 0, True, True)
 
             # Convert unrolled indices to actual indices of scores
-            prev_word_inds = top_k_words / vocab_size  # (s)
+            prev_word_inds = (top_k_words / vocab_size).long()  # (s)
             next_word_inds = top_k_words % vocab_size  # (s)
 
             # Add new words to sequences, alphas

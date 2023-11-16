@@ -35,8 +35,11 @@ def read_image_from_url(url, temp_dir='./temp'):
         # out_file.write(data)
 
     # return file_name
-
-    with urllib.request.urlopen(url) as response:
+    req = urllib.request.Request(
+        url=url,
+        headers={'User-Agent': 'Mozilla/5.0'}
+    )
+    with urllib.request.urlopen(req) as response:
         data = response.read()  # a `bytes` object
         data = BytesIO(data)
 
