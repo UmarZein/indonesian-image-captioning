@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Pickles
+*.pkl 
+
+# Top-level JPG
+*.jpg
+
 # Dataset
 data/
 dataset/
